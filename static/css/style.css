@@ -1,0 +1,428 @@
+/* CSS VARIABLES */
+:root {
+	--primary: #141414;
+	--light: #F3F3F3;
+	--dark: 	#686868;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+	background-color: var(--primary);
+	color: var(--light);
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.4;
+}
+
+img {
+	max-width: 100%;
+}
+  
+h1 {
+	padding-top: 30px;  
+}
+  
+/* HEADER */
+header {
+	transition: 500ms;
+	padding: 20px 20px 15px 20px;
+	position: fixed;
+	top: 0;
+	display: grid;  
+	grid-gap:5px;
+	grid-template-columns: 1fr 4fr 1fr;
+	grid-template-areas: 
+	 "nt mn mn sb . . . "; 
+	background-color: transparent;
+	width: 100%;
+	margin-bottom: 0px;  
+	z-index: 9999;
+}
+  
+.netflixLogo {
+	grid-area: nt;
+	object-fit: cover;
+	width: 100px;
+	max-height: 100%;
+	
+	padding-left: 30px;
+	padding-top: 0px;  
+}
+  
+.netflixLogo img {  
+	height: 35px;     
+}
+  
+#logo {
+	color: #E50914;  
+	margin: 0; 
+	padding: 0; 
+}
+  
+  
+.main-nav {
+	grid-area: mn;
+	padding: 0 30px 0 20px;
+}
+  
+.main-nav a {
+	color: var(--light);
+	text-decoration: none;
+	margin: 5px;  
+}
+  
+.main-nav a:hover {
+	color: var(--dark);
+}
+  
+.sub-nav {
+	grid-area: sb;
+	padding: 0 40px 0 40px;
+}
+  
+.sub-nav a {
+	color: var(--light);
+	text-decoration: none;
+	margin: 5px;
+}
+  
+.sub-nav a:hover {
+	color: var(--dark);
+}
+
+/* ---------------common---------------- */
+/* BANNER */
+.banner{
+	width: 100%;
+    z-index: 1;
+    position: relative;
+}
+.banner .banner__top{
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0), rgb(0, 0, 0));
+}
+.banner .banner__bottom{
+    position: absolute;
+    bottom: -1px;
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #141414);
+}
+.banner video{
+	width: 100%;
+}
+.banner .banner__content{
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+}
+
+/* TITLE */
+.title{
+    padding: 0px 50px;
+    width: 500px;
+    margin-top: 50px;
+}
+.title h1 {
+    font-size: 48px;
+}
+
+/* MAIN CONTIANER */
+.main-container {
+	position: relative;
+	z-index: 2;
+	padding: 10px 50px;
+}
+  
+.box {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(6, minmax(100px, 1fr));
+}  
+  
+.box a {
+	transition: transform .3s;  
+}
+  
+.box a:hover {
+	transition: transform .3s;
+	-ms-transform: scale(1.4);
+	-webkit-transform: scale(1.4);  
+	transform: scale(1.4);
+}
+  
+.box img {
+	border-radius: 2px;
+}
+
+/* FILM PLAYER */
+.filmPlayer__video{
+	margin-top: 100px;
+	height: 40vw;
+	width: 100%;
+	background-color: black;
+	border: 1px solid white;
+}
+.filmEpisode button {
+	cursor: pointer;
+	border-radius: 10px;
+	background-color: gray;
+	padding: 8px 20px;
+	margin: 5px;
+	color: white;
+}
+.filmSuggest__content{
+	margin-top: 15px;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(4,1fr);
+}
+.filmSuggest__content a:hover {
+	transition: transform .3s;
+	-ms-transform: scale(1.2);
+	-webkit-transform: scale(1.2);  
+	transform: scale(1.2);
+  }
+.filmSuggest__content a img {
+	width: 100%;
+}
+/* FILM SEARCH */
+.searchFilm__inp{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.searchFilm__inp input{
+	width: 90%;
+	font-size: 24px;
+	padding: 5px;
+	outline: none;
+}
+.searchFilm__icon{
+	font-size: 20px !important;
+	padding: 9px 20px;
+	background-color: red;
+
+}
+.searchFilm__content{
+	margin-top: 15px;
+}
+.searchFilm__content .box a:hover {
+	transition: transform .3s;
+	-ms-transform: scale(1);
+	-webkit-transform: scale(1);  
+	transform: scale(1);
+}
+.searchFilm__content img{
+	height: 100%;
+}
+
+/* ---------------common---------------- */
+/* LINKS */
+.link {
+	padding: 50px;
+}
+  
+.sub-links ul {
+	list-style: none;
+	padding: 0;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(4, 1fr);
+}
+  
+.sub-links a {
+	color: var(--dark);
+	text-decoration: none;
+}
+  
+.sub-links a:hover {
+	color: var(--dark);
+	text-decoration: underline;
+}
+  
+.logos a{
+	padding: 10px;
+}
+  
+.logo {
+	color: var(--dark);
+	margin-bottom: 10px;
+}
+  
+  
+/* FOOTER */
+footer {
+	padding: 20px;
+	text-align: center;
+	color: var(--dark);
+	margin: 10px;
+}
+  
+  /* MEDIA QUERIES */
+
+@media (max-width: 1299px) {
+	.main-container{
+		margin-top: 0 !important;
+	}
+}
+  
+@media(max-width: 900px) {
+	header {
+	  display: grid;
+	  position: static;
+	  grid-gap: 20px;
+	  grid-template-columns: repeat(2, 1fr);
+	  grid-template-areas: 
+	  "nt nt nt  .  .  . sb . . . "
+	  "mn mn mn mn mn mn  mn mn mn mn";
+	}
+
+	.banner .banner__content .left{
+		margin-left: 25px;
+	}
+	.banner .banner__content .left img{
+		width: 300px;
+		margin-top: 200px !important;
+	}
+	.banner .banner__content button, span {
+		font-size: 10px !important;
+		width: max-content !important;
+		opacity: 0.8;
+	}	
+  
+	.box {
+	  display: grid;
+	  grid-gap: 20px;
+	  grid-template-columns: repeat(4, minmax(100px, 1fr));
+	}
+
+	.title{
+		padding: 0px 50px;
+		width: 90%;
+		margin-top: 55px;
+	}
+  
+}
+  
+@media(max-width: 700px) {
+  
+	header {
+	  display: grid;
+	  grid-gap: 20px;
+	  grid-template-columns: repeat(2, 1fr);
+	  grid-template-areas: 
+	  "nt nt nt  .  .  . sb . . . "
+	  "mn mn mn mn mn mn  mn mn mn mn";
+	}
+
+	.banner .banner__content .left{
+		margin-left: 25px;
+	}
+	.banner .banner__content .left img{
+		width: 200px;
+		margin-top: 90px !important;
+	}
+	.banner .banner__content button, span {
+		font-size: 10px !important;
+		width: max-content !important;
+		opacity: 0.8;
+	}
+  
+	.box {
+	  display: grid;
+	  grid-gap: 20px;
+	  grid-template-columns: repeat(3, minmax(100px, 1fr));
+	}
+  
+	.sub-links ul {
+	  display: grid;
+	  grid-gap: 20px;
+	  grid-template-columns: repeat(3, 1fr);
+	}
+}
+  
+@media(max-width: 500px) {
+  
+	.wrapper {
+	  font-size: 15px;
+	}
+  
+	header {
+	  margin: 0;
+	  padding: 20px 0 5px 0;
+	  position: static;
+	  display: grid;
+	  grid-gap: 20px;
+	  grid-template-columns: repeat(1, 1fr);
+	  grid-template-areas: 
+	  "nt"    
+	  "mn"
+	  "sb";
+	  text-align: center;
+	}
+  
+	.netflixLogo {
+	  max-width: 100%;
+	  margin: auto;
+	  padding-right: 20px;
+	}
+  
+	.main-nav {
+	  display: grid;
+	  grid-gap: 0px;
+	  grid-template-columns: repeat(1, 1fr);
+	  text-align: center;
+	}
+  
+	h1 {
+	  text-align: center;
+	  font-size: 18px;
+	}
+  
+	.box {
+	  display: grid;
+	  grid-gap: 20px;
+	  grid-template-columns: repeat(1, 1fr);
+	  text-align: center;    
+	}
+
+	.searchFilm__content .box {
+		display: grid;
+		grid-gap: 20px;
+		grid-template-columns: repeat(2, 1fr);
+		text-align: center;    
+	}
+  
+	.box a:hover {
+	  transition: transform .3s;
+	  -ms-transform: scale(1);
+	  -webkit-transform: scale(1);  
+	  transform: scale(1.2);
+	}
+  
+	.logos {
+	  display: grid;
+	  grid-gap: 20px;
+	  grid-template-columns: repeat(2, 1fr);
+	  text-align: center;
+	}
+  
+	.sub-links ul {
+	  display: grid;
+	  grid-gap: 20px;
+	  grid-template-columns: repeat(1, 1fr);
+	  text-align: center;
+	  font-size: 15px;
+	}
+}
+
