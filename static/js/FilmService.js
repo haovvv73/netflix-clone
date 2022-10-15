@@ -1,12 +1,13 @@
 
-
-
 class FilmService {
     // home
-    getHome(){
+    getHome(page = 0){
         let promise = axios({
             method:'GET',
-            url: 'https://ga-mobile-api.loklok.tv/cms/app/homePage/getHome?page=0',
+            url: 'https://ga-mobile-api.loklok.tv/cms/app/homePage/getHome',
+            params:{
+                page:page
+            },
             headers: {
                 lang: "en",
                 versioncode: "11",
@@ -16,26 +17,38 @@ class FilmService {
         return promise
     }
     //movie
-    getMovie(){
+    getMovie(id,category){
         let promise = axios({
             method: 'GET',
-            url: 'https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo?category=0&contentId=8084&episodeId=37813&definition=GROOT_LD',
+            url: 'https://ga-mobile-api.loklok.tv/cms/app/movieDrama/get',
+            params:{
+                id:id,
+                category:category,
+            },
+            headers: {
+                lang: "en",
+                versioncode: "11",
+                clienttype: "ios_jike_default",
+            },
         })
         return promise
     }
-    //tv
-    getTv(){
+    //movie media
+    getMovieMedia = (cate, contentId, episodeId, definition)=>{
         let promise = axios({
             method: 'GET',
-            url: 'https://ga-mobile-api.loklok.tv/cms/app/movieDrama/get?id=6432&category=1',
-        })
-        return promise
-    }
-    //search
-    getSearch(){
-        let promise = axios({
-            method: 'GET',
-            url: 'https://ga-mobile-api.loklok.tv/cms/app/homePage/getHome?page=1',
+            url: 'https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo',
+            params:{
+                category: cate,
+                contentId:contentId,
+                episodeId:episodeId,
+                definition:definition,
+            },
+            headers: {
+                lang: "en",
+                versioncode: "11",
+                clienttype: "ios_jike_default",
+            },
         })
         return promise
     }

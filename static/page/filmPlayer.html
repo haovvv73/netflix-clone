@@ -23,12 +23,12 @@
         </div>
         <nav class="main-nav">
             <a href="../../index.html">Home</a>
-            <a href="./searchFilm.html">TV Shows</a>
-            <a href="./searchFilm.html">Movies</a>
-            <a href="./searchFilm.html">Explore</a>
+            <a href="./searchFilm.html?page=1">TV Shows</a>
+            <a href="./searchFilm.html?page=2">Movies</a>
+            <a href="./searchFilm.html?page=3">Explore</a>
         </nav>
         <nav class="sub-nav">
-            <a href="./searchFilm.html"><i class="fas fa-search sub-nav-logo"></i></a>
+            <a href="./searchFilm.html?page=0"><i class="fas fa-search sub-nav-logo"></i></a>
             <a href="#"><i class="fas fa-bell sub-nav-logo"></i></a>
             <a href="#">Account</a>
         </nav>
@@ -43,8 +43,8 @@
         <!-- END OF PLAYER -->
 
         <!-- DETAIL -->
-        <section class="filmDetail">
-            <h1>Người Nhện: Không còn nhà</h1>
+        <section id="filmDetailid" class="filmDetail">
+            <!-- <h1>Người Nhện: Không còn nhà</h1>
             <p>
                 Khi người thân của anh gặp nguy hiểm, Peter Parker nhờ bác sĩ Strange khôi phục bí mật của mình - rồi vô
                 tình gây ra một thảm họa ở quy mô rất lớn.
@@ -52,14 +52,13 @@
             <div>
                 <span style="color: gray;">Diễn viên chính:</span>
                 <span>Tom Holland, Zendaya, Benedict Cumberbatch</span>
-            </div>
+            </div> -->
         </section>
         <!-- END OF DETAIL -->
 
         <!-- EPISODE -->
-        <section class="filmEpisode">
-            <h1>episode</h1>
-            <button style="background-color: red;">1</button>
+        <section id="filmEpid" class="filmEpisode">
+            <!-- <button style="background-color: red;">1</button>
             <button>2</button>
             <button>3</button>
             <button>4</button>
@@ -67,13 +66,13 @@
             <button>6</button>
             <button>7</button>
             <button>8</button>
-            <button>9</button>
+            <button>9</button> -->
         </section>
         <!-- END OF EPISODE -->
 
         <!-- SUGGEST FILM -->
-        <section class="filmSuggest">
-            <h1>You should like</h1>
+        <section id="suggestFilmid" class="filmSuggest">
+            <!-- <h1>You should like</h1>
             <div class="filmSuggest__content">
                 <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p1.PNG?raw=true" alt=""></a>
                 <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p2.PNG?raw=true" alt=""></a>
@@ -88,7 +87,7 @@
                 <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p10.PNG?raw=true" alt=""></a>
                 <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p11.PNG?raw=true" alt=""></a>
                 <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p12.PNG?raw=true" alt=""></a>
-            </div>
+            </div> -->
 
         </section>
         <!-- END OF SUGGEST FILM -->
@@ -103,6 +102,7 @@
     <!-- axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- js file -->
+    <script src="../js/FilmService.js"></script>
     <script src="../js/main.js"></script>
 </body>
 

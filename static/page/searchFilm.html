@@ -20,17 +20,18 @@
         <header style="background-color: #141414;">
                 <div class="netflixLogo">
                         <a id="logo" href="../../index.html">
-                                <img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/logo.PNG?raw=true" alt="Logo Image">
+                                <img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/logo.PNG?raw=true"
+                                        alt="Logo Image">
                         </a>
                 </div>
                 <nav class="main-nav">
                         <a href="../../index.html">Home</a>
-                        <a href="./filmPlayer.html">TV Shows</a>
-                        <a href="./filmPlayer.html">Movies</a>
-                        <a href="./filmPlayer.html">Explore</a>
+                        <a href="./searchFilm.html?page=1">TV Shows</a>
+                        <a href="./searchFilm.html?page=2">Movies</a>
+                        <a href="./searchFilm.html?page=3">Explore</a>
                 </nav>
                 <nav class="sub-nav">
-                        <a href="#search"><i class="fas fa-search sub-nav-logo"></i></a>
+                        <a href="./searchFilm.html?page=0"><i class="fas fa-search sub-nav-logo"></i></a>
                         <a href="#"><i class="fas fa-bell sub-nav-logo"></i></a>
                         <a href="#">Account</a>
                 </nav>
@@ -40,7 +41,8 @@
         <!-- title -->
         <section class="title">
                 <h1>Phim</h1>
-                <p>Phim ảnh lay động chúng ta theo một cách rất riêng, dù cho đó là phim đáng sợ, hài hước, bi ai, lãng mạn hay dung hòa giữa các yếu tố đó. Thật nhiều nội dung, thật nhiều cơ hội trải nghiệm.</p>
+                <p>Phim ảnh lay động chúng ta theo một cách rất riêng, dù cho đó là phim đáng sợ, hài hước, bi ai, lãng
+                        mạn hay dung hòa giữa các yếu tố đó. Thật nhiều nội dung, thật nhiều cơ hội trải nghiệm.</p>
         </section>
         <!-- end of title -->
 
@@ -50,48 +52,29 @@
                         <span class="searchFilm__icon">
                                 <i class="fa fa-search"></i>
                         </span>
-                        <input type="text">
+                        <input id="inputSearchFilm" type="text">
                 </section>
                 <!-- result search -->
                 <section class="searchFilm__result">
                         <h1>Your film</h1>
-                        <div class="searchFilm__content">
-                                <div class="box">
-                                        <a href=""><img src="../img/at_biec_jhrz.jpg" alt=""></a>
-                                        <a href=""><img src="../img/at_biec_jhrz.jpg" alt=""></a>
-                                        <a href=""><img src="../img/poster-phim-kinh-di.jpg" alt=""></a>
-                                        <a href=""><img src="../img/poster-phim-kinh-di.jpg" alt=""></a>
-                                        <a href=""><img src="../img/poster-phim-kinh-di.jpg"alt=""></a>
-                                        <a href=""><img src="../img/at_biec_jhrz.jpg"alt=""></a>
+                        <div id="filmSearch" class="searchFilm__content">
 
-                                        <a href=""><img src="../img/at_biec_jhrz.jpg" alt=""></a>
-                                        <a href=""><img src="../img/at_biec_jhrz.jpg" alt=""></a>
-                                        <a href=""><img src="../img/poster-phim-kinh-di.jpg" alt=""></a>
-                                        <a href=""><img src="../img/poster-phim-kinh-di.jpg" alt=""></a>
-                                        <a href=""><img src="../img/poster-phim-kinh-di.jpg"alt=""></a>
-                                        <a href=""><img src="../img/at_biec_jhrz.jpg"alt=""></a>
-
-                                        <a href=""><img src="../img/at_biec_jhrz.jpg" alt=""></a>
-                                        <a href=""><img src="../img/at_biec_jhrz.jpg" alt=""></a>
-                                        <a href=""><img src="../img/poster-phim-kinh-di.jpg" alt=""></a>
-                                        <a href=""><img src="../img/poster-phim-kinh-di.jpg" alt=""></a>
-                                        <a href=""><img src="../img/poster-phim-kinh-di.jpg"alt=""></a>
-                                        <a href=""><img src="../img/at_biec_jhrz.jpg"alt=""></a>                                        
-                                        <a href=""><img src="../img/at_biec_jhrz.jpg" alt=""></a>
-                                        <a href=""><img src="../img/at_biec_jhrz.jpg" alt=""></a>
-                                        <a href=""><img src="../img/poster-phim-kinh-di.jpg" alt=""></a>
-                                        <a href=""><img src="../img/poster-phim-kinh-di.jpg" alt=""></a>
-                                        <a href=""><img src="../img/poster-phim-kinh-di.jpg"alt=""></a>
-                                        <a href=""><img src="../img/at_biec_jhrz.jpg"alt=""></a>
-                                </div>
                         </div>
                 </section>
 
         </section>
 
+        <!-- FOOTER -->
+        <footer>
+                <p>&copy 1997-2022 Netflix, Inc.</p>
+                <p>code start 2022</p>
+        </footer>
+        <!-- END OF FOOTER -->
+
         <!-- axios -->
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <!-- js file -->
+        <script src="../js/FilmService.js"></script>
         <script src="../js/main.js"></script>
 </body>
 

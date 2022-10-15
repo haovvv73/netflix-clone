@@ -24,6 +24,8 @@ img {
   
 h1 {
 	padding-top: 30px;  
+	padding-bottom: 20px;
+	font-size: 30px;
 }
   
 /* HEADER */
@@ -142,7 +144,7 @@ header {
 	z-index: 2;
 	padding: 10px 50px;
 }
-  
+
 .box {
 	display: grid;
 	grid-gap: 20px;
@@ -159,7 +161,21 @@ header {
 	-webkit-transform: scale(1.4);  
 	transform: scale(1.4);
 }
-  
+
+.box .boxItem{
+	position: relative;
+	z-index: 3;
+}
+.box .boxTitle{
+	color: white;
+	padding: 2px;
+	background-color: rgb(125, 18, 18);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
 .box img {
 	border-radius: 2px;
 }
@@ -180,21 +196,13 @@ header {
 	margin: 5px;
 	color: white;
 }
-.filmSuggest__content{
-	margin-top: 15px;
-	display: grid;
-	grid-gap: 20px;
-	grid-template-columns: repeat(4,1fr);
-}
-.filmSuggest__content a:hover {
+.filmSuggest .box a:hover {
 	transition: transform .3s;
-	-ms-transform: scale(1.2);
-	-webkit-transform: scale(1.2);  
-	transform: scale(1.2);
-  }
-.filmSuggest__content a img {
-	width: 100%;
+	-ms-transform: scale(1);
+	-webkit-transform: scale(1);  
+	transform: scale(1);
 }
+
 /* FILM SEARCH */
 .searchFilm__inp{
 	display: flex;
@@ -392,7 +400,7 @@ footer {
 	.box {
 	  display: grid;
 	  grid-gap: 20px;
-	  grid-template-columns: repeat(1, 1fr);
+	  grid-template-columns: repeat(2, 1fr);
 	  text-align: center;    
 	}
 
