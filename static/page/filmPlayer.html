@@ -6,13 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflix player</title>
-
     <!-- font awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"
         integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9"
         crossorigin="anonymous"></script>
+    <!-- hls -->
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
     <!-- css file -->
     <link rel="stylesheet" href="../css/style.css">
+
+
 </head>
 
 <body>
@@ -37,8 +41,8 @@
 
     <section class="main-container">
         <!-- PLAYER -->
-        <section class="filmPlayer">
-            <div class="filmPlayer__video"></div>
+        <section id="filmPlayerID" class="filmPlayer">
+
         </section>
         <!-- END OF PLAYER -->
 
@@ -101,9 +105,12 @@
 
     <!-- axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- videojs -->
+    <!-- <script src="https://cdn.plyr.io/3.7.2/demo.js" crossorigin="anonymous"></script> -->
     <!-- js file -->
     <script src="../js/FilmService.js"></script>
     <script src="../js/main.js"></script>
+    <script src="https://cdn.tutorialjinni.com/hls.js/1.2.1/hls.min.js"></script>
 </body>
 
 </html>

@@ -182,11 +182,8 @@ header {
 
 /* FILM PLAYER */
 .filmPlayer__video{
-	margin-top: 100px;
-	height: 40vw;
-	width: 100%;
-	background-color: black;
-	border: 1px solid white;
+	margin-top: 90px;
+	/* border: 1px solid white; */
 }
 .filmEpisode button {
 	cursor: pointer;
