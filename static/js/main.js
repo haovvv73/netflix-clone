@@ -18,7 +18,16 @@ const page = urlParams.get('page')
 const id = urlParams.get('id')
 const category = urlParams.get('category')
 
+// memory id film
+if(localStorage.getItem('filmEp')){
+    let filmNetfliId = JSON.parse(localStorage.getItem('filmNetfliId'))
+    if(filmNetfliId != id){
+        localStorage.removeItem("filmEp");
+    }
+}
+
 // api request
+// all data film
 const getData = async () => {
     try {
         let result
@@ -44,7 +53,7 @@ const getData = async () => {
         console.log(err);
     }
 }
-
+// detail film and media
 const getMedia = async (category = 0 , id = 8084, episodeId = 37813, definition='GROOT_LD',subtitleList = [])=>{
     try{
         let result = await filmService.getMovieMedia(category,id,episodeId,definition)
@@ -62,14 +71,19 @@ const getFilmData = async (id = 0, category = 0) => {
     try {
         // get detail
         let result = await filmService.getMovie(id, category)
-        console.log("🚀 ~ file: main.js ~ line 65 ~ getFilmData ~ detail", result.data.data)
         detailFilm(result.data.data)
 
         // getMedia firt episode
         const {episodeVo} = result.data.data
         const definition = episodeVo[0].definitionList[0].code
         const subTitleList = episodeVo[0].subtitlingList
-        getMedia(category,id,episodeVo[0].id,definition,subTitleList)
+        if(localStorage.getItem('filmEp')){
+            let filmEP = JSON.parse(localStorage.getItem('filmEp'))
+            getMedia(category,id,episodeVo[filmEP].id,definition,subTitleList)
+        }else{
+            localStorage.setItem('filmNetfliId',JSON.stringify(id))
+            getMedia(category,id,episodeVo[0].id,definition,subTitleList)
+        }
         //----
         // console.log(episodeVo);
         // console.log(episodeVo[0].definitionList[0].code);
@@ -79,7 +93,7 @@ const getFilmData = async (id = 0, category = 0) => {
     }
 }
 
-// logic
+// search explore film with key
 const searchData = (text = '') => {
     let tenFilm = ''
     let arrayFilmSearch = []
@@ -100,18 +114,27 @@ const searchData = (text = '') => {
         recommendContentVOList: [...arrayFilmSearch]
     }])
 }
-const changeEpisode = ()=>{
-
-}
-
-const changeQuality = ()=>{
-    
-}
-
-// call when load
-getData();
-if (id && category) {
-    getFilmData(id, category)
+// change episoda src
+const changeEpisode = async (category,id,episodeId,definition,index)=>{
+    // style
+    for(let i = 1; i < filmEpid.children.length; i++){
+        filmEpid.children[i].style.backgroundColor = 'gray'
+    }
+    filmEpid.children[index + 1].style.backgroundColor = 'red'
+    // goi data ep moi
+    try{
+        // get new src episoda
+        getMedia(category,id,episodeId,definition)
+        // save episode now
+        localStorage.setItem('filmEp',JSON.stringify(index))
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }catch(err){
+        console.log(err);
+    }
 }
 
 // -------------- RENDER -------------------
@@ -121,7 +144,7 @@ const renderSuggestFilm = (arr = []) => {
     let txt = ''
     arr.forEach(film => {
         txt += `
-            <a href="./filmPlayer.html?id=${film.id}&category=${film.category}" class="boxItem">
+            <a href="./filmPlayer.html?id=${film.id}&category=${film.category}" class="boxItem" style="background-color: gray;">
                 <img src="${film.coverVerticalUrl}" alt="123">
                 <p class="boxTitle" > ${film.name} </p>
             </a>`
@@ -133,17 +156,8 @@ const renderSuggestFilm = (arr = []) => {
     suggestFilmid.innerHTML = content
 }
 const renderPlayerFilm = async (media = {},sub = "")=>{
-    console.log(media, " and " , sub);
-    let content = `            
-    <video 
-    id="my_video" 
-    class="video-js vjs-fluid vjs-default-skin filmPlayer__video" 
-    controls preload="auto"
-    data-setup='{}'>
-      <source src="${media.mediaUrl}" type="application/x-mpegURL">
-    </video>`
-    filmPlayerID.innerHTML = content
-    // let player = videojs('my_video');
+    let player = videojs('my_video');
+    player.src ({type: 'application/x-mpegURL', src: `${media.mediaUrl}`})
     // player.play();
 }
 const detailFilm = (film = {}) => {
@@ -164,15 +178,22 @@ const detailFilm = (film = {}) => {
     filmDetailid.innerHTML = detail
     // episode film
     let episoda = `<h1>Episode</h1>`
+    let color = 'gray'
+    let filmEP = 0
+    // style now episoda
+    if(localStorage.getItem('filmEp')){
+        filmEP = JSON.parse(localStorage.getItem('filmEp'))
+    }
     film.episodeVo.forEach((item, index) => {
-        episoda += `<button onClick="getMedia(${film.category},${film.id},${item.id},'${item.definitionList[0].code}')" >${index + 1}</button>`
+        if(index == filmEP){ color = 'red' }else{ color = 'gray' }
+        episoda += `<button style="background-color: ${color};" onClick="changeEpisode(${film.category},${film.id},${item.id},'${item.definitionList[0].code}',${index})" >${index + 1}</button>`
     })
     filmEpid.innerHTML = episoda
     // suggest film
     renderSuggestFilm(film.likeList)
 }
 
-// search page
+// eplore page
 const renderSearchFilm = (arr = arrayFilm[0]) => {
     let content = ''
     let txt = ''
@@ -181,7 +202,7 @@ const renderSearchFilm = (arr = arrayFilm[0]) => {
         if (element.homeSectionType !== "BANNER" && element.homeSectionType !== "BLOCK_GROUP") {
             element.recommendContentVOList.forEach(film => {
                 txt += `
-                <a href="./filmPlayer.html?id=${film.id}&category=${film.category}" class="boxItem">
+                <a href="./filmPlayer.html?id=${film.id}&category=${film.category}" class="boxItem" style="background-color: gray;">
                     <img src="${film.imageUrl}" alt="123">
                     <p class="boxTitle" > ${film.title} </p>
                 </a>`
@@ -204,7 +225,9 @@ const renderHome = () => {
         if (element.homeSectionType !== "BANNER" && element.homeSectionType !== "BLOCK_GROUP") {
             content += `<br> <h1>${element.homeSectionName}</h1>`
             element.recommendContentVOList.forEach(film => {
-                txt += `<a href="./static/page/filmPlayer.html?id=${film.id}&category=${film.category}"><img src="${film.imageUrl}" alt="123"></a>`
+                txt += `<a href="./static/page/filmPlayer.html?id=${film.id}&category=${film.category}" style="background-color: gray;">
+                    <img src="${film.imageUrl}" alt="123">
+                </a>`
             })
             content += `
                 <div class="box">
@@ -215,3 +238,7 @@ const renderHome = () => {
     filmHome.innerHTML = content
 }
 
+getData();
+if (id && category) {
+    getFilmData(id, category)
+}

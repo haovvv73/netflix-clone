@@ -52,4 +52,30 @@ class FilmService {
         })
         return promise
     }
+    // search movie
+    getSearchLeaderBoard = ()=>{
+        let promise = axios({
+            method: 'GET',
+            url: 'https://ga-mobile-api.loklok.tv/cms/app/search/v1/searchLeaderboard',
+            headers: {
+                lang: "en",
+                versioncode: "11",
+                clienttype: "ios_jike_default",
+            },
+        })
+        return promise
+    }
+    SearchWithKeyword = (data = {})=>{
+        let promise = axios({
+            method: 'POST',
+            url: 'https://ga-mobile-api.loklok.tv/cms/app/search/v1/searchWithKeyWord',
+            headers: {
+                lang: "en",
+                versioncode: "11",
+                clienttype: "ios_jike_default",
+            },
+            data:data
+        })
+        return promise
+    }
 } 

@@ -26,42 +26,32 @@
                 </div>
                 <nav class="main-nav">
                         <a href="../../index.html">Home</a>
-                        <a href="./searchFilm.html?page=1">TV Shows</a>
-                        <a href="./searchFilm.html?page=2">Movies</a>
-                        <a href="./searchFilm.html?page=3">Explore</a>
+                        <a href="./eploreFilm.html?page=1">TV Shows</a>
+                        <a href="./eploreFilm.html?page=2">Movies</a>
+                        <a href="./eploreFilm.html?page=3">Explore</a>
                 </nav>
                 <nav class="sub-nav">
-                        <a href="./searchFilm.html?page=0"><i class="fas fa-search sub-nav-logo"></i></a>
+                        <a href="#search"><i class="fas fa-search sub-nav-logo"></i></a>
                         <a href="#"><i class="fas fa-bell sub-nav-logo"></i></a>
                         <a href="#">Account</a>
                 </nav>
         </header>
         <!-- END OF HEADER -->
 
-        <!-- title -->
-        <section class="title">
-                <h1>Phim</h1>
-                <p>Phim ảnh lay động chúng ta theo một cách rất riêng, dù cho đó là phim đáng sợ, hài hước, bi ai, lãng
-                        mạn hay dung hòa giữa các yếu tố đó. Thật nhiều nội dung, thật nhiều cơ hội trải nghiệm.</p>
-        </section>
-        <!-- end of title -->
-
-        <section class="main-container">
+        <section style="margin-top: 70px; padding: 10px 50px;">
                 <!-- input search -->
                 <section class="searchFilm__inp">
-                        <span class="searchFilm__icon">
+                        <span class="searchFilm__icon" style="cursor: pointer;">
                                 <i class="fa fa-search"></i>
                         </span>
-                        <input id="inputSearchFilm" type="text">
+                        <input id="inpKeySearch" type="text">
                 </section>
-                <!-- result search -->
                 <section class="searchFilm__result">
-                        <h1>Your film</h1>
-                        <div id="filmSearch" class="searchFilm__content">
+                        <h1>Top Film search</h1>
+                        <div id="contentSearch" class="searchFilm__content">
 
                         </div>
                 </section>
-
         </section>
 
         <!-- FOOTER -->
@@ -75,7 +65,7 @@
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <!-- js file -->
         <script src="../js/FilmService.js"></script>
-        <script src="../js/main.js"></script>
+        <script src="../js/searchFilm.js"></script>
 </body>
 
 </html>

@@ -27,12 +27,12 @@
         </div>
         <nav class="main-nav">
             <a href="../../index.html">Home</a>
-            <a href="./searchFilm.html?page=1">TV Shows</a>
-            <a href="./searchFilm.html?page=2">Movies</a>
-            <a href="./searchFilm.html?page=3">Explore</a>
+            <a href="./eploreFilm.html?page=1">TV Shows</a>
+            <a href="./eploreFilm.html?page=2">Movies</a>
+            <a href="./eploreFilm.html?page=3">Explore</a>
         </nav>
         <nav class="sub-nav">
-            <a href="./searchFilm.html?page=0"><i class="fas fa-search sub-nav-logo"></i></a>
+            <a href="./searchMoreFilm.html"><i class="fas fa-search sub-nav-logo"></i></a>
             <a href="#"><i class="fas fa-bell sub-nav-logo"></i></a>
             <a href="#">Account</a>
         </nav>
@@ -42,7 +42,12 @@
     <section class="main-container">
         <!-- PLAYER -->
         <section id="filmPlayerID" class="filmPlayer">
-
+            <video 
+            id="my_video" 
+            class="video-js vjs-fluid vjs-default-skin filmPlayer__video" 
+            controls preload="auto"
+            data-setup='{}'>
+            </video>
         </section>
         <!-- END OF PLAYER -->
 

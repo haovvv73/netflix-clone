@@ -188,7 +188,7 @@ header {
 .filmEpisode button {
 	cursor: pointer;
 	border-radius: 10px;
-	background-color: gray;
+	/* background-color: gray; */
 	padding: 8px 20px;
 	margin: 5px;
 	color: white;
@@ -308,7 +308,7 @@ footer {
 	.box {
 	  display: grid;
 	  grid-gap: 20px;
-	  grid-template-columns: repeat(4, minmax(100px, 1fr));
+	  grid-template-columns: repeat(4, minmax(100px, 1fr)) !important ;
 	}
 
 	.title{
@@ -346,7 +346,7 @@ footer {
 	.box {
 	  display: grid;
 	  grid-gap: 20px;
-	  grid-template-columns: repeat(3, minmax(100px, 1fr));
+	  grid-template-columns: repeat(3, minmax(100px, 1fr)) !important;
 	}
   
 	.sub-links ul {
@@ -397,7 +397,7 @@ footer {
 	.box {
 	  display: grid;
 	  grid-gap: 20px;
-	  grid-template-columns: repeat(2, 1fr);
+	  grid-template-columns: repeat(2, 1fr) !important;
 	  text-align: center;    
 	}
 
