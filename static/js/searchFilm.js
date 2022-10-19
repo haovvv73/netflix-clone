@@ -17,12 +17,11 @@ const searchKeyWord = async (key = '')=>{
     try{
         let result = await filmService.SearchWithKeyword({
             "searchKeyWord": `${key.toLocaleLowerCase()}`,
-            "size": 50,
+            "size": 100,
             "sort": "",
             "searchType": ""
         })
         const { searchResults } = result.data.data
-        console.log("🚀 ~ file: searchFilm.js ~ line 23 ~ searchKeyWord ~ searchResults", searchResults)
         renderResultSearch(searchResults)
     }catch(err){
         console.log(err);
@@ -65,7 +64,7 @@ const renderResultSearch = (arr = [])=>{
     arr.forEach(film => {
         txt += `
             <a href="./filmPlayer.html?id=${film.id}&category=${film.domainType}" class="boxItem" style="background-color: gray;">
-                <img src="${film.coverVerticalUrl}" alt="123">
+                <img data-src="${film.coverVerticalUrl}" src="../img/Rectangle 1.jpg" alt="123">
                 <p class="boxTitle" >${film.name} </p>
             </a>`
     })
@@ -74,6 +73,5 @@ const renderResultSearch = (arr = [])=>{
                 ${txt}
             </div> `
     contentSearch.innerHTML = content
+    lazyLoad()
 }
-
-
